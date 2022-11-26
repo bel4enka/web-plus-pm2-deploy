@@ -1,9 +1,8 @@
-const dotenv = require('dotenv');
+const dotenev = require('dotenv');
 
-dotenv.config({ path: './.env.deploy' });
-
+dotenev.config({ path: '.env.deploy' });
 const {
-  DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_REF = 'origin/master', DEPLOY_REPO,
+  DEPLOY_USER, DEPLOY_HOST, DEPLOY_PATH, DEPLOY_REF = 'origin/master',
 } = process.env;
 
 module.exports = {
@@ -18,10 +17,10 @@ module.exports = {
       user: DEPLOY_USER,
       host: DEPLOY_HOST,
       ref: DEPLOY_REF,
-      repo: DEPLOY_REPO,
+      repo: 'https://github.com/bel4enka/web-plus-pm2-deploy.git',
       path: DEPLOY_PATH,
-      'pre-deploy-local': `scp ./.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
-      'post-deploy': 'cd backend && npm i && npm run build',
+      'pre-deploy': `scp ./*.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
+      'post-deploy': 'npm i && npm run build',
     },
   },
 };
