@@ -19,10 +19,8 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: 'https://github.com/bel4enka/web-plus-pm2-deploy.git',
       path: DEPLOY_PATH,
-      'pre-setup': 'rm -rf web-plus-pm2-deploy',
-      'pre-deploy-local': `scp ./.env.deploy ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
-      'pre-deploy': 'cd backend && rm -rf node_modules dist',
-      'post-deploy': "cd backend && echo -e 'NODE_ENV=production' >> .env && echo -e 'JWT_SECRET=JWT_SECRET' >> .env && npm install && npm run build && pm2 start",
+      'pre-deploy': `scp ./*.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
+      'post-deploy': 'npm i && npm run build',
     },
   },
 };
