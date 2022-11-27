@@ -21,7 +21,7 @@ module.exports = {
       path: DEPLOY_PATH,
       //'pre-deploy': `scp ./*.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
       //'post-deploy': 'npm i && npm run build',
-      'post-deploy': 'echo $PATH',
+      'post-deploy': 'export PATH="/home/oxana/.nvm/versions/node/v14.21.1/bin:$PATH" && npm i && npm run build',
     },
   },
 };
