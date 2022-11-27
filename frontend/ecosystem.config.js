@@ -24,7 +24,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: 'https://github.com/bel4enka/web-plus-pm2-deploy.git',
       path: DEPLOY_PATH,
-      'post-deploy' : `cd && cd ${DEPLOY_PATH}/source/frontend && npm i && NODE_OPTIONS='--openssl-legacy-provider' npm run build`,
+      'post-deploy' : `cd ${DEPLOY_PATH}/source/frontend && npm i && NODE_OPTIONS='--openssl-legacy-provider' npm run build`,
     }
   }
 };
