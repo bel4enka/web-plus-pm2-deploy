@@ -24,7 +24,7 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: 'https://github.com/bel4enka/web-plus-pm2-deploy.git',
       path: DEPLOY_PATH,
-      'post-deploy' : `export PATH="/home/oxana/.nvm/versions/node/v14.21.1/bin:$PATH" cd ~/web-plus-pm2-deploy/source/frontend/ && npm i && NODE_OPTIONS='--openssl-legacy-provider' npm run build`,
+      'post-deploy' : `export PATH=\"/home/oxana/.nvm/versions/node/v14.21.1/bin:$PATH\" cd ~/web-plus-pm2-deploy/source/frontend/ && npm i && NODE_OPTIONS='--openssl-legacy-provider' npm run build`,
     }
   }
 };
