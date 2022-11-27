@@ -19,9 +19,8 @@ module.exports = {
       ref: DEPLOY_REF,
       repo: 'https://github.com/bel4enka/web-plus-pm2-deploy.git',
       path: DEPLOY_PATH,
-      //'pre-deploy': `scp ./*.env ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}`,
-      //'post-deploy': 'npm i && npm run build',
-      'post-deploy': 'export PATH="/home/oxana/.nvm/versions/node/v14.21.1/bin:$PATH" && npm i && npm run build',
+      'pre-deploy-local': `scp ./.env* ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/source/backend`,
+      'post-deploy': 'cd ~/web-plus-pm2-deploy/source/backend/ && npm i && npm run build && pm2 restart ecosystem.config.js',
     },
   },
 };
